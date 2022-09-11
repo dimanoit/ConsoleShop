@@ -7,6 +7,7 @@ using Entities;
 
 namespace Data
 {
+    // Mb rename to IReadonlyDataContext 
     public interface IDataContext
     {
         List<UserEntity> Customers { get; }

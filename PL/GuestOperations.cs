@@ -61,7 +61,7 @@ namespace PL
             int day = int.Parse(Console.ReadLine());
             UserEntity newUser = new UserEntity
             {
-                Id = 0,
+                Id = 0, // why 0?
                 Name = name,
                 Surname = surname,
                 DateOfBirth = new DateTime(year, month, day),

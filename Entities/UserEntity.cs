@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class UserEntity : AccountEntity
+    public class UserEntity : AccountEntity // Why not customer entity? 
     {
     }
 }

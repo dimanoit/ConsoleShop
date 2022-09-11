@@ -13,6 +13,8 @@ namespace PL
     public interface IOperations
     {
         void SetUser(AccountEntity user);
-        bool ShowAvalibleOperations(IDataContext dataContext, ref IOperations operations);
+        bool ShowAvalibleOperations(IDataContext dataContext, ref IOperations operations); 
+        // Typo Avalible -> Available
+        // Try to avoid recursive dependency  
     }
 }

@@ -13,7 +13,7 @@ namespace Data
         public List<AdminEntity> Admins { get; }
         public List<OrderEntity> Orders { get; }
         public List<ProductEntity> Products { get; }
-
+        
         public DataContext()
         {
             Customers = new List<UserEntity>

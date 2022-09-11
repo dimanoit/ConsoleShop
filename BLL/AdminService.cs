@@ -74,6 +74,7 @@ namespace BLL
             return false;
         }
 
+        // Code duplication
         public bool ChangeUserInfo(AccountEntity user, IDataContext context)
         {
             if (context.Customers.Find(c => c.Id == user.Id) == null)
@@ -82,6 +83,7 @@ namespace BLL
             return true;
         }
 
+        // Create new Product service
         public bool ChangeProductInfo(ProductEntity product, IDataContext context)
         {
             if (context.Products.Find(c => c.Id == product.Id) == null)

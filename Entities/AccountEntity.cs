@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
+    // Better to group all inheritance objects in one folder ( for example yll have AccountEntities folder
+    // and all classes in this folder 
     public abstract class AccountEntity
     {
         public int Id { get; set; }
@@ -18,9 +20,12 @@ namespace Entities
         {
             return $"{Id} - {Name} - {Surname} - {DateOfBirth} - {Email}";
         }
+        
+        // And what we should do if derived entities have more fields for example admin have 'rules'
+        // hint ( we have 1 interesting behavioural pattern) 
         public void Update(AccountEntity account)
         {
-            if(account.Name != null)
+            if(account.Name != null) // string.IsNullOrEmpty(account.Name)
                 this.Name = account.Name;
             if (account.Surname != null)
                 this.Surname = account.Surname;

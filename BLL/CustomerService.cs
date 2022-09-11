@@ -8,12 +8,17 @@ using Entities;
 
 namespace BLL
 {
+    // Don't mix in one service User and Order logic
     public class CustomerService: BaseService
     {
+        // This stuff should be in DataContext 
         private int nextId = -1;
 
+        // Try to group methods by some logical stuff 
+        // For example Get, Create, Update Delete or Product Methods then User Methods 
         public IEnumerable<ProductEntity> ListOfProduct(IDataContext context) => context.Products;
 
+        // Code duplication, What do u think about creating separate service for Orders?
         public bool CreateOrder(int customerId, int productId, IDataContext context)
         {
             UserEntity user = context.Customers.Find(c => c.Id == customerId);
@@ -35,7 +40,7 @@ namespace BLL
         }
 
         public IEnumerable<OrderEntity> ViewOrders(int customerId, IDataContext context) =>
-            context.Orders?.Where(o => o.Customer.Id == customerId).Select(o => o);
+            context.Orders?.Where(o => o.Customer.Id == customerId).Select(o => o); // Don't need select
 
         public bool CancelOrder(int orderId, IDataContext context)
         {
@@ -48,6 +53,7 @@ namespace BLL
             return false;
         }
 
+        // Let's think about better method name, also consider some mechanism to consistently handle status changes 
         public bool ReceivedOrder(int orderId, int userId, IDataContext context)
         {
             OrderEntity changeOrder = context.Orders?.Find(o => o.Id == orderId);

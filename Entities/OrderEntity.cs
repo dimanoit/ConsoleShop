@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
+    // Good to have for separate objects separate files
     public enum OrderState
     {
         New,

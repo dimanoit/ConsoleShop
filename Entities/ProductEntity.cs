@@ -23,7 +23,7 @@ namespace Entities
                 this.Name = product.Name;
             if (product.Category != null)
                 this.Category = product.Category;
-            if (product.Price != 0)
+            if (product.Price != 0) // better to do product.Price != default
                 this.Price = product.Price;
         }
     }
